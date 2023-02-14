@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Riot</string>
+    <string name="my_champion">My Champ</string>
+    <string name="champion_list">Champ List</string>
+</resources>

@@ -1,17 +1,22 @@
-package com.yh.riot.domain.repository
+package com.yh.riot.data.db
 
 import androidx.lifecycle.LiveData
+import androidx.room.Dao
+import androidx.room.Delete
+import androidx.room.Insert
+import androidx.room.Query
 import com.yh.riot.data.model.LOLChamp
-import com.yh.riot.data.model.RiotResponse
 
-interface RiotRepository {
+@Dao
+interface ChampDao {
 
-    suspend fun getLOLChamp(): RiotResponse<LOLChamp>
-
+    @Insert
     suspend fun insertChampion(lolChamp: LOLChamp)
 
+    @Delete
     suspend fun deleteChampion(lolChamp: LOLChamp)
 
+    @Query("SELECT * FROM LOLChamp")
     fun getAllChampion(): LiveData<List<LOLChamp>>
 
 }

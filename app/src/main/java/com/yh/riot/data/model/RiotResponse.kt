@@ -1,6 +1,8 @@
 package com.yh.riot.data.model
 
 import android.os.Parcelable
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import kotlinx.parcelize.Parcelize
 import kotlinx.serialization.Serializable
 
@@ -14,7 +16,9 @@ data class RiotResponse<T>(
 
 @Serializable
 @Parcelize
+@Entity
 data class LOLChamp(
+    @PrimaryKey(autoGenerate = false)
     val id: String,
     val name: String,
     val title: String,

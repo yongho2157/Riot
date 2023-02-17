@@ -35,6 +35,7 @@
         app:layout_constraintGuide_end="56dp" />
 
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/detail_card_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:elevation="10dp"
@@ -42,7 +43,7 @@
         app:layout_constraintEnd_toEndOf="@id/end_guide_line"
         app:layout_constraintStart_toStartOf="@id/start_guide_line"
         app:layout_constraintTop_toTopOf="@id/top_guide_line"
-        app:layout_constraintBottom_toBottomOf="@id/bottom_guide_line"
+        app:layout_constraintBottom_toBottomOf="@id/detail_save_btn"
         app:strokeColor="@color/black"
         app:strokeWidth="1dp">
 
@@ -100,5 +101,15 @@
         </LinearLayout>
 
     </com.google.android.material.card.MaterialCardView>
+
+    <Button
+        android:id="@+id/detail_save_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/end_guide_line"
+        app:layout_constraintTop_toBottomOf="@id/detail_card_view"
+        android:text="저장"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

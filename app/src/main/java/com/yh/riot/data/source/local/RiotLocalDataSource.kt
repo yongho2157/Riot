@@ -1,12 +1,9 @@
-package com.yh.riot.domain.repository
+package com.yh.riot.data.source.local
 
 import androidx.lifecycle.LiveData
 import com.yh.riot.data.model.LOLChamp
-import com.yh.riot.data.model.RiotResponse
 
-interface RiotRepository {
-
-    suspend fun getLOLChamp(): RiotResponse<LOLChamp>
+interface RiotLocalDataSource {
 
     suspend fun insertChampion(lolChamp: LOLChamp)
 

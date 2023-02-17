@@ -10,11 +10,13 @@ import com.bumptech.glide.Glide
 import com.yh.riot.R
 import com.yh.riot.databinding.FragmentChampionListBinding
 import com.yh.riot.databinding.FragmentDetailChampionBinding
+import dagger.hilt.android.AndroidEntryPoint
 
 class DetailChampionFragment : Fragment() {
 
     private var _binding: FragmentDetailChampionBinding? = null
     private val binding get() = _binding!!
+    private lateinit var viewModel: MainViewModel
 
     private val args by navArgs<DetailChampionFragmentArgs>()
 
@@ -29,6 +31,7 @@ class DetailChampionFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        viewModel = (activity as MainActivity).viewModel
         val champ = args.champ
 
         with(binding) {
@@ -39,6 +42,10 @@ class DetailChampionFragment : Fragment() {
             detailTitle.text = champ.title
             detailName.text = champ.name
             detailDescription.text = champ.blurb
+
+            detailSaveBtn.setOnClickListener {
+                viewModel.saveChampion(champ)
+            }
         }
 
     }

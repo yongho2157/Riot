@@ -9,12 +9,33 @@
         android:id="@+id/fragment_my_champion"
         android:name="com.yh.riot.presentation.MyChampionFragment"
         android:label="@string/my_champion"
-        tools:layout="@layout/fragment_my_champion" />
+        tools:layout="@layout/fragment_my_champion" >
+        <action
+            android:id="@+id/action_fragment_my_champion_to_detailChampionFragment"
+            app:destination="@id/detailChampionFragment" />
+    </fragment>
     <fragment
         android:id="@+id/fragment_champion_list"
         android:name="com.yh.riot.presentation.ChampionListFragment"
         android:label="@string/champion_list"
-        tools:layout="@layout/fragment_champion_list" />
+        tools:layout="@layout/fragment_champion_list" >
+        <action
+            android:id="@+id/action_fragment_champion_list_to_detailChampionFragment"
+            app:destination="@id/detailChampionFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailChampionFragment"
+        android:name="com.yh.riot.presentation.DetailChampionFragment"
+        android:label="@string/detail_champion"
+        tools:layout="@layout/fragment_detail_champion">
+        <argument
+            android:name="champ"
+            app:argType="com.yh.riot.data.model.LOLChamp" />
+    </fragment>
 
 
 </navigation>

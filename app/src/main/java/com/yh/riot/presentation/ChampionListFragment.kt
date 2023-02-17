@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.yh.riot.R
 import com.yh.riot.databinding.FragmentChampionListBinding
 
@@ -35,6 +36,11 @@ class ChampionListFragment : Fragment() {
             championListAdapter.addAll(it)
         }
         viewModel.getChamp()
+
+        championListAdapter.setOnItemClickListener {
+            val action = ChampionListFragmentDirections.actionFragmentChampionListToDetailChampionFragment(it)
+            findNavController().navigate(action)
+        }
     }
 
     override fun onDestroy() {

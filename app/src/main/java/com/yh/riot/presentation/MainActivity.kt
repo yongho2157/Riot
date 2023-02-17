@@ -5,6 +5,8 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.yh.riot.R
 import com.yh.riot.databinding.ActivityMainBinding
@@ -18,17 +20,43 @@ class MainActivity : AppCompatActivity() {
         ActivityMainBinding.inflate(layoutInflater)
     }
 
-    lateinit var navHostFragment: NavHostFragment
-    lateinit var navController: NavController
+    private lateinit var navController: NavController
+    private lateinit var appBarConfiguration: AppBarConfiguration
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-
-        navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-        navController = navHostFragment.navController
-
-        binding.bottomNavigationView.setupWithNavController(navController)
-//        viewModel.getChamp()
+        initNavigation()
     }
+
+
+    private fun initNavigation() {
+        val host = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        navController = host.navController
+        binding.bottomNavigationView.setupWithNavController(navController)
+
+        appBarConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.fragment_my_champion, R.id.fragment_champion_list
+            )
+        )
+        setupActionBarWithNavController(navController, appBarConfiguration)
+    }
+
+    /*
+    private fun setupJetpackNavigation() {
+        val host =
+            supportFragmentManager.findFragmentById(R.id.booksearch_nav_host_fragment) as NavHostFragment?
+                ?: return
+        navController = host.navController
+        binding.bottomNavigationView.setupWithNavController(navController)
+
+        appBarConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.fragment_search, R.id.fragment_favorite, R.id.fragment_settings
+            )
+        )
+        setupActionBarWithNavController(navController, appBarConfiguration)
+    }
+     */
 }

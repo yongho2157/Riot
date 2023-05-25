@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.yh.riot.data.model.LOLChamp
 import com.yh.riot.databinding.ChampPreviewBinding
-import com.yh.riot.domain.model.Champ
 
 class ChampionListAdapter : RecyclerView.Adapter<ViewHolder>() {
 

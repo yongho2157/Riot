@@ -36,7 +36,7 @@ object ApiModule {
     @Provides
     fun provideNetworkJson(): Json = Json {
         isLenient = true // Json 큰따움표 느슨하게 체크
-        ignoreUnknownKeys = true // Field 값이 없는 경우 무사
+        ignoreUnknownKeys = true // Field 값이 없는 경우 무시
         coerceInputValues = true // "null" 이 들어간 경우 default Argument 값으로 대체
     }
 

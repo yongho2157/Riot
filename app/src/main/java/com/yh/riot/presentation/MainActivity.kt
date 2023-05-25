@@ -29,11 +29,9 @@ class MainActivity : AppCompatActivity() {
         initNavigation()
     }
 
-
     private fun initNavigation() {
         val host = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = host.navController
-        binding.bottomNavigationView.setupWithNavController(navController)
 
         appBarConfiguration = AppBarConfiguration(
             setOf(
@@ -42,21 +40,4 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
     }
-
-    /*
-    private fun setupJetpackNavigation() {
-        val host =
-            supportFragmentManager.findFragmentById(R.id.booksearch_nav_host_fragment) as NavHostFragment?
-                ?: return
-        navController = host.navController
-        binding.bottomNavigationView.setupWithNavController(navController)
-
-        appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.fragment_search, R.id.fragment_favorite, R.id.fragment_settings
-            )
-        )
-        setupActionBarWithNavController(navController, appBarConfiguration)
-    }
-     */
 }

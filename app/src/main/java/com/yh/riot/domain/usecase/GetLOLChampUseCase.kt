@@ -4,7 +4,6 @@ import android.util.Log
 import kotlinx.coroutines.flow.Flow
 import com.yh.riot.Result
 import com.yh.riot.data.model.LOLChamp
-import com.yh.riot.domain.model.Champ
 import com.yh.riot.domain.repository.RiotRepository
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject

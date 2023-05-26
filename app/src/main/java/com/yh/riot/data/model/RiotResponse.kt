@@ -24,5 +24,5 @@ data class LOLChamp(
     val title: String,
     val blurb: String,
     val tags: List<String>,
-    val url: String = "https://ddragon.leagueoflegends.com/cdn/img/champion/loading/" + id + "_0.jpg"
+    var url: String = "https://ddragon.leagueoflegends.com/cdn/img/champion/loading/" + id + "_0.jpg"
 ) : Parcelable

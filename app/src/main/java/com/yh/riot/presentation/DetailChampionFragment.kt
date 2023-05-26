@@ -1,6 +1,7 @@
 package com.yh.riot.presentation
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -33,6 +34,7 @@ class DetailChampionFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel = (activity as MainActivity).viewModel
         val champ = args.champ
+        champ.url = "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/" + champ.id + "_0.jpg"
 
         with(binding) {
             Glide.with(view)
@@ -41,11 +43,6 @@ class DetailChampionFragment : Fragment() {
 
             detailTitle.text = champ.title
             detailName.text = champ.name
-            detailDescription.text = champ.blurb
-
-            detailSaveBtn.setOnClickListener {
-                viewModel.saveChampion(champ)
-            }
         }
 
     }

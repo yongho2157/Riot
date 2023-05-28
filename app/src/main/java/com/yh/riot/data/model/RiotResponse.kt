@@ -15,6 +15,13 @@ data class RiotResponse<T>(
 )
 
 @Serializable
+data class ChampInfo(
+    val id: String,
+    val name: String,
+
+)
+
+@Serializable
 @Parcelize
 @Entity
 data class LOLChamp(

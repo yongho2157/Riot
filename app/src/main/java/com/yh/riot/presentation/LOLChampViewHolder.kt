@@ -5,7 +5,7 @@ import com.bumptech.glide.Glide
 import com.yh.riot.data.model.LOLChamp
 import com.yh.riot.databinding.ChampPreviewBinding
 
-class ViewHolder(private val binding: ChampPreviewBinding) : RecyclerView.ViewHolder(binding.root) {
+class LOLChampViewHolder(private val binding: ChampPreviewBinding) : RecyclerView.ViewHolder(binding.root) {
 
     fun bind(lolChamp: LOLChamp) {
         binding.tvPreviewTitle.text = lolChamp.name

@@ -1,6 +1,7 @@
 package com.yh.riot.data.repository
 
 import androidx.lifecycle.LiveData
+import com.yh.riot.data.model.ChampInfo
 import com.yh.riot.data.model.LOLChamp
 import com.yh.riot.data.model.RiotResponse
 import com.yh.riot.data.source.local.RiotLocalDataSource
@@ -14,6 +15,9 @@ class RiotRepositoryImpl @Inject constructor(
 ) : RiotRepository {
     override suspend fun getLOLChamp(): RiotResponse<LOLChamp> =
         riotRemoteDataSource.getLOLChamp()
+
+    override suspend fun getChampInfo(champId: String): RiotResponse<ChampInfo> =
+        riotRemoteDataSource.getChampInfo(champId)
 
     override suspend fun insertChampion(lolChamp: LOLChamp) {
         riotLocalDataSource.insertChampion(lolChamp)
